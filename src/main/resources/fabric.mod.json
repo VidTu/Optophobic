@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "optophobic",
+  "version": "${version}",
+  "name": "Optophobic",
+  "description": "Remove \"Light updates disabled\" added by Sodium Extra.",
+  "authors": [
+    "VidTu"
+  ],
+  "contact": {
+    "homepage": "https://github.com/VidTu/Optophobic",
+    "sources": "https://github.com/VidTu/Optophobic",
+    "issues": "https://github.com/VidTu/Optophobic/issues",
+    "email": "pig@vidtu.ru",
+    "discord": "https://discord.gg/Q6saSVSuYQ"
+  },
+  "license": "MIT",
+  "icon": "optophobic.png",
+  "environment": "client",
+  "mixins": [
+    {
+      "config": "optophobic.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "minecraft": "1.21.11",
+    "fabricloader": "*",
+    "sodium": "*",
+    "sodium-extra": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.github_releases": "https://github.com/VidTu/Optophobic/releases",
+        "modmenu.discord": "https://discord.gg/Q6saSVSuYQ"
+      }
+    },
+    "catalogue": {
+      "icon": {
+        "image": "optophobic_64.png",
+        "item": "minecraft:light"
+      },
+      "banner": "optophobic_240.png",
+      "background": "optophobic_background.png"
+    }
+  }
+}

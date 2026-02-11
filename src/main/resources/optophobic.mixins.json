@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_21",
+  "package": "ru.vidtu.optophobic.mixin",
+  "client": [
+    "SodiumExtraHudMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
