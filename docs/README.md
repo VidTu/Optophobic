@@ -97,7 +97,7 @@ To compile the mod from the source code:
 
 ### Developing/Debugging
 
-Run the `./gradlew runClient`[^1] command to launch the game client. You can
+Run the `./gradlew runClient` command to launch the game client. You can
 attach a debugger to that process. Hotswap is supported. "Enhanced" hotswap
 (class redefinition) and hotswap agent will work if supported by your JVM.
 

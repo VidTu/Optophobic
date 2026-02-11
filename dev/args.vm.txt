@@ -39,9 +39,6 @@
 
 -enableassertions
 -enablesystemassertions
--Dmixin.debug=true
--Dmixin.debug.strict.unique=true
--Dmixin.checks=false
 -DMC_DEBUG_ENABLED=true
 
 -XX:+AllowEnhancedClassRedefinition

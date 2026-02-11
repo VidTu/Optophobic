@@ -45,7 +45,7 @@ java {
 // Metadata.
 group = "ru.vidtu.optophobic"
 base.archivesName = "Optophobic"
-version = "${version}+${name}"
+version = "${version}+1.21.11-fabric"
 description = "Remove \"Light updates disabled\" added by Sodium Extra."
 
 loom {
