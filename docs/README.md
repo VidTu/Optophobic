@@ -23,6 +23,8 @@ This mod hides this label.
 
 ## FAQ
 
+### For Players
+
 **Q**: I need help, have some questions, or have some other feedback.  
 **A**: You can join the [Discord server](https://discord.gg/Q6saSVSuYQ).
 
@@ -38,12 +40,17 @@ You'll need a GitHub account to download these.
 **Q**: Which Minecraft versions are supported?  
 **A**: Minecraft 1.21.11.
 
-**Q**: Is this mod open source?  
-**A**: [Yes.](https://github.com/VidTu/Optophobic) (Licensed
-under [MIT License](https://github.com/VidTu/Optophobic/blob/main/LICENSE))
+**Q**: Are you planning to support NeoForge/Forge? Other versions?  
+**A**: As new versions will release, I will support them for Fabric.
+NeoForge/Forge support is not planned currently,
+neither is the support for old versions.
 
 **Q**: Do I need Fabric API or Quilt Standard Libraries?  
-**A**: Yes, you'll need Fabric API for Fabric and QFAPI/QSL for Quilt.
+**A**: No.
+
+**Q**: Is this mod client-side or server-side?  
+**A**: This mod works on the client side. Sodium and Sodium Extra
+are client-side mods too. There is no server-side version.
 
 **Q**: I've found a bug.  
 **A**: Report it [here](https://github.com/VidTu/Optophobic/issues). If you are not
@@ -55,6 +62,49 @@ sure whether this is a bug or a simple question, you can join the
 **A**: Sure. Credit (e.g., a link to the mod's GitHub page) is appreciated but
 is not required. Monetization and redistribution are allowed as per the
 [MIT License](https://github.com/VidTu/Optophobic/blob/main/LICENSE).
+
+**Q**: Why is this mod not on Modrinth or CurseForge?  
+**A**: I believe this is a temporary "hack" and the upstream
+developer should add this functionality in some time. Shall I
+be wrong, this mod will be uploaded there.
+
+**Q**: Why?  
+**A**: I don't like that you can't hide "Light updates disabled" in any way.
+I have [asked](https://github.com/FlashyReese/sodium-extra/issues/507) the
+developer to add the ability of this, awaiting response at the time of writing.
+
+**Q**: Does it have a performance penalty? How laggy is it?  
+**A**: It's not laggy. It's a one-mixin mod that disables the label.
+
+### For Developers
+
+**Q**: Is this mod open source?  
+**A**: [Yes.](https://github.com/VidTu/Optophobic) (Licensed
+under [MIT License](https://github.com/VidTu/Optophobic/blob/main/LICENSE))
+
+**Q**: Why so much yapping in this README?  
+**A**: ~~I paid for the whole LLM, I'm going to use the whole LLM.~~
+Because writing READMEs (even though I don't use AI except
+for grammar checks) is easier than writing actual code.
+
+**Q**: Do you use AI/LLM/Code Generation/Copilot/etc.?  
+**A**: Except for the aforementioned grammar checkers above, no. I use only
+the laggiest IntelliJ IDEA inspections based on the buggiest algorithms.
+Can't be sure for contributors, but most of the code is written
+by the project author. Also, I don't care about AI personally.
+
+**Q**: Does Optophobic have a public API?  
+**A**: Nope. There's no public-facing API in this mod.
+All classes/packages are marked as
+[@ApiStatus.Internal](https://javadoc.io/static/org.jetbrains/annotations/26.0.2/org/jetbrains/annotations/ApiStatus.Internal.html)
+for that reason.
+
+**Q**: Can I still *link*/compile against to the mod? What about the
+[SemVer](https://semver.org/) versioning used by the mod?  
+**A**: You can, at your own risk. SemVer-compatible versioning is used by
+Optophobic for ease of use, but it is used arbitrarily. This mod does not
+declare a public API, therefore, breaking source/binary changes may and will
+occur even between minor and patch versions.
 
 ## License
 
