@@ -33,7 +33,7 @@ jetbrains-annotations = "26.0.2-1"
 jspecify = "1.0.0"
 minecraft = "1.21.11"
 sodium = "0.8.4+mc1.21.11"
-sodium-extra = "mc1.21.11-0.8.3+fabric"
+sodium-extra = "0.3.5"
 
 [plugins]
 fabric-loom = { id = "net.fabricmc.fabric-loom-remap", version.ref = "fabric-loom" }
