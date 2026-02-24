@@ -32,7 +32,7 @@ fabric-loom = "1.15.4"
 jetbrains-annotations = "26.1.0"
 jspecify = "1.0.0"
 minecraft = "1.21.11"
-sodium = "0.8.5+mc1.21.11"
+sodium = "0.8.6+mc1.21.11"
 sodium-extra = "mc1.21.11-0.8.3+fabric"
 
 [plugins]
