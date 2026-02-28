@@ -4,6 +4,11 @@
 
 Remove "Light updates disabled" added by Sodium Extra.
 
+## Language
+
+- **English** 🇬🇧 🇺🇸
+- [Русский 🇷🇺](README_ru.md)
+
 ## Downloads
 
 - [GitHub Releases](https://github.com/VidTu/Optophobic/releases)
@@ -17,9 +22,9 @@ Remove "Light updates disabled" added by Sodium Extra.
 
 ## About
 
-When you toggle "Light Updates" in the Sodium Extra mod, it permanently
+When you toggle off "Light Updates" in the Sodium Extra mod, it permanently
 adds the "Light updates disabled" label without a way of hiding it.
-This mod hides this label.
+This mod hides that label.
 
 ## FAQ
 
@@ -71,7 +76,7 @@ be wrong, this mod will be uploaded there.
 **Q**: Why?  
 **A**: I don't like that you can't hide "Light updates disabled" in any way.
 I have [asked](https://github.com/FlashyReese/sodium-extra/issues/507) the
-developer to add the ability of this, awaiting response at the time of writing.
+developer to add the way to do this, currently awaiting response.
 
 **Q**: Does it have a performance penalty? How laggy is it?  
 **A**: It's not laggy. It's a one-mixin mod that disables the label.
@@ -117,7 +122,6 @@ for more information.
 This mod is developed primarily by [VidTu](https://github.com/VidTu),
 but it wouldn't be possible without:
 
-- [Contributors](https://github.com/VidTu/HCsCR/graphs/contributors).
 - [Fabric Loom](https://github.com/FabricMC/fabric-loom) by
   [FabricMC](https://github.com/FabricMC). (and contributors)
 - [Fabric Loader](https://github.com/FabricMC/fabric-loader) by
@@ -141,7 +145,7 @@ To compile the mod from the source code:
 
 1. Have 1 GB of free RAM, 10 GB of free disk space,
    and an active internet connection.
-2. Install Java 21 (and/or 25) and dump it into PATH and/or JAVA_HOME.
+2. Install Java 21 (and/or 25) and dump it into `PATH` and/or `JAVA_HOME`.
 3. Run `./gradlew assemble` from the terminal/PowerShell.
 4. Grab the JAR from the `./build/libs/` folder.
 
