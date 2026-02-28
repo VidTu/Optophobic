@@ -1,4 +1,4 @@
-<img src="optophobic.png" alt="Optophobic Icon" width=128 height=128/>
+<img alt src=optophobic.png>
 
 # Optophobic
 
