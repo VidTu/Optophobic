@@ -29,59 +29,33 @@
 
 import com.google.gson.Gson
 import com.google.gson.JsonElement
-import net.fabricmc.loom.task.RunGameTask
 
 plugins {
-    alias(libs.plugins.fabric.loom)
+    id("java")
 }
 
 // Language.
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
-    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+    toolchain.languageVersion = JavaLanguageVersion.of(8)
 }
 
 // Metadata.
 group = "ru.vidtu.optophobic"
 base.archivesName = "Optophobic"
-version = "${version}+1.21.11-fabric"
 description = "Remove \"Light updates disabled\" added by Sodium Extra."
 
-loom {
-    // Prepare development environment.
-    log4jConfigs.setFrom(rootDir.resolve("dev/log4j2.xml"))
-
-    // Set up runs.
-    runs {
-        // Customize the client run.
-        named("client") {
-            // Set up debug VM args.
-            vmArgs("@../dev/args.vm.txt")
-        }
-
-        // Remove server run, the mod is client-only.
-        remove(findByName("server"))
+// Add GSON to buildscript classpath, we use it for minifying JSON files.
+buildscript {
+    dependencies {
+        classpath(libs.gson)
     }
-
-    // Configure Mixin.
-    @Suppress("UnstableApiUsage") // <- Required to configure Mixin.
-    mixin {
-        // Use direct remapping instead of annotation processor and refmaps.
-        useLegacyMixinAp = false
-    }
-}
-
-// Make the game run with the compatible Java.
-tasks.withType<RunGameTask> {
-    javaLauncher = javaToolchains.launcherFor(java.toolchain)
 }
 
 repositories {
     mavenCentral()
-    maven("https://maven.fabricmc.net/") // Fabric.
-    maven("https://maven.caffeinemc.net/releases/") // Sodium.
-    maven("https://api.modrinth.com/maven/") // Sodium Extra.
+    maven("https://repo.spongepowered.org/repository/maven-public/") // Mixin.
 }
 
 dependencies {
@@ -91,20 +65,19 @@ dependencies {
     compileOnly(libs.error.prone.annotations)
 
     // Minecraft.
-    minecraft(libs.minecraft)
-    mappings(loom.officialMojangMappings())
-    modImplementation(libs.fabric.loader)
-
-    // Sodium.
-    modImplementation(libs.sodium)
-    modImplementation(libs.sodium.extra)
+    compileOnly(libs.mixin)
+    compileOnly(libs.asm) // Required for Mixin.
 }
 
 // Compile with UTF-8, Java 8, and with all debug options.
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
     options.compilerArgs.addAll(listOf("-g", "-parameters"))
-    options.release = 21
+    // JDK 8 (used by this project) doesn't support the "-release" flag and
+    // uses "-source" and "-target" ones (see the top of the file),
+    // so we must NOT specify it, or the "javac" will fail.
+    // If we ever gonna compile on newer Java versions, uncomment this line.
+    // options.release = 8
 }
 
 tasks.withType<ProcessResources> {
@@ -131,6 +104,9 @@ tasks.withType<ProcessResources> {
 tasks.withType<Jar> {
     // Add LICENSE into the JAR file.
     from("LICENSE")
+
+    // Exclude mock classes.
+    exclude("me/**")
 
     // Remove package-info.class, unless package debug is on. (to save space)
     if (!"${findProperty("ru.vidtu.optophobic.debug.package")}".toBoolean()) {

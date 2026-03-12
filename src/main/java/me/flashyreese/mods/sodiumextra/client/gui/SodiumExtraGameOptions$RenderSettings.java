@@ -27,52 +27,34 @@
  * SPDX-License-Identifier: MIT
  */
 
-package ru.vidtu.optophobic.mixin;
+package me.flashyreese.mods.sodiumextra.client.gui;
 
-import com.google.errorprone.annotations.DoNotCall;
-import me.flashyreese.mods.sodiumextra.client.config.SodiumExtraGameOptions$RenderSettings;
+import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Contract;
 import org.jspecify.annotations.NullMarked;
-import org.objectweb.asm.Opcodes;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
+import ru.vidtu.optophobic.mixin.SodiumExtraHudMixin;
 
 /**
- * Mixin that does the job.
+ * Mock class for compilation.
+ *
+ * Used in {@link SodiumExtraHudMixin}.
  *
  * @author VidTu
  * @apiNote Internal use only
+ * @see SodiumExtraHudMixin
  */
-// @ApiStatus.Internal // Can't annotate this without logging in the console.
-@Pseudo
-@Mixin(targets = "me.flashyreese.mods.sodiumextra.client.gui.SodiumExtraHud", remap = false)
 @NullMarked
-public final class SodiumExtraHudMixin {
+public final class SodiumExtraGameOptions$RenderSettings {
     /**
      * An instance of this class cannot be created.
      *
      * @throws AssertionError Always
      * @deprecated Always throws
      */
-    // @ApiStatus.ScheduledForRemoval // Can't annotate this without logging in the console.
+    @ApiStatus.ScheduledForRemoval
     @Deprecated
     @Contract(value = "-> fail", pure = true)
-    private SodiumExtraHudMixin() {
+    private SodiumExtraGameOptions$RenderSettings() {
         throw new AssertionError("Optophobic: No instances.");
-    }
-
-    /**
-     * Makes {@code lightUpdates} to be always {@code true} inside HUD handling.
-     *
-     * @param ignoredSettings Settings module, ignored
-     * @return Always {@code true}
-     * @apiNote Do not call, called by Mixin
-     */
-    @DoNotCall("Called by Mixin")
-    @Contract(value = "_ -> true", pure = true)
-    @Redirect(method = "onStartTick", at = @At(value = "FIELD", target = "Lme/flashyreese/mods/sodiumextra/client/config/SodiumExtraGameOptions$RenderSettings;lightUpdates:Z", opcode = Opcodes.GETFIELD))
-    private boolean optophobic_onStartTick_lightUpdates(final SodiumExtraGameOptions$RenderSettings ignoredSettings) {
-        return true;
     }
 }

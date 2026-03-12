@@ -1,9 +1,11 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_8",
   "package": "ru.vidtu.optophobic.mixin",
+  "plugin": "ru.vidtu.optophobic.OPlugin",
   "client": [
+    "HudRenderImplMixin",
     "SodiumExtraHudMixin"
   ],
   "injectors": {

@@ -30,7 +30,7 @@
 package ru.vidtu.optophobic.mixin;
 
 import com.google.errorprone.annotations.DoNotCall;
-import me.flashyreese.mods.sodiumextra.client.config.SodiumExtraGameOptions$RenderSettings;
+import me.flashyreese.mods.sodiumextra.client.gui.SodiumExtraGameOptions$RenderSettings;
 import org.jetbrains.annotations.Contract;
 import org.jspecify.annotations.NullMarked;
 import org.objectweb.asm.Opcodes;
@@ -46,9 +46,9 @@ import org.spongepowered.asm.mixin.injection.Redirect;
  */
 // @ApiStatus.Internal // Can't annotate this without logging in the console.
 @Pseudo
-@Mixin(targets = "me.flashyreese.mods.sodiumextra.client.gui.SodiumExtraHud", remap = false)
+@Mixin(targets = "me.flashyreese.mods.sodiumextra.client.gui.HudRenderImpl", remap = false)
 @NullMarked
-public final class SodiumExtraHudMixin {
+public final class HudRenderImplMixin {
     /**
      * An instance of this class cannot be created.
      *
@@ -58,7 +58,7 @@ public final class SodiumExtraHudMixin {
     // @ApiStatus.ScheduledForRemoval // Can't annotate this without logging in the console.
     @Deprecated
     @Contract(value = "-> fail", pure = true)
-    private SodiumExtraHudMixin() {
+    private HudRenderImplMixin() {
         throw new AssertionError("Optophobic: No instances.");
     }
 
@@ -71,8 +71,8 @@ public final class SodiumExtraHudMixin {
      */
     @DoNotCall("Called by Mixin")
     @Contract(value = "_ -> true", pure = true)
-    @Redirect(method = "onStartTick", at = @At(value = "FIELD", target = "Lme/flashyreese/mods/sodiumextra/client/config/SodiumExtraGameOptions$RenderSettings;lightUpdates:Z", opcode = Opcodes.GETFIELD))
-    private boolean optophobic_onStartTick_lightUpdates(final SodiumExtraGameOptions$RenderSettings ignoredSettings) {
+    @Redirect(method = "onHudRender", at = @At(value = "FIELD", target = "Lme/flashyreese/mods/sodiumextra/client/gui/SodiumExtraGameOptions$RenderSettings;lightUpdates:Z", opcode = Opcodes.GETFIELD))
+    private boolean optophobic_onHudRender_lightUpdates(final SodiumExtraGameOptions$RenderSettings ignoredSettings) {
         return true;
     }
 }

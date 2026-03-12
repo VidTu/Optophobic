@@ -143,25 +143,20 @@ It also uses [Gradle](https://gradle.org/) and [Java](https://java.com/).
 
 To compile the mod from the source code:
 
-1. Have 1 GB of free RAM, 10 GB of free disk space,
+1. Have 1 GB of free RAM, 1 GB of free disk space,
    and an active internet connection.
-2. Install Java 21 (and/or 25) and dump it into `PATH` and/or `JAVA_HOME`.
+2. Install Java 25 (for Gradle; you'll also need 8 for the compilation,
+   download either of those, the other will be automatically downloaded
+   via Java toolchains) and dump it into `PATH` and/or `JAVA_HOME`.
 3. Run `./gradlew assemble` from the terminal/PowerShell.
 4. Grab the JAR from the `./build/libs/` folder.
 
 ### Developing/Debugging
 
-Run the `./gradlew runClient` command to launch the game client. You can
-attach a debugger to that process. Hotswap is supported. "Enhanced" hotswap
-(class redefinition) and hotswap agent will work if supported by your JVM.
-
-Running the client via generated tasks (e.g., for IntelliJ IDEA) may work, but
-you might need to make some adjustments. Launching the game directly
-(without Gradle) might also work, but it is also not supported.
-
-The development environment has stricter preconditions: Mixin checks,
-Netty detector, Java assertions, etc. Code with bugs might (and probably will)
-fail faster here than in a production environment.
+There's literally nothing to launch because there's no underlying Minecraft
+plugin for Gradle. Everything is compiled and tested in third-party launcher.
+Yes, I know, that sucks. It is a cross-version, cross-loader, one-jar mod,
+no other sane way of implementing this. This way is also not sane. Have fun!
 
 The recommended IDE for development is IntelliJ IDEA (Community or Ultimate)
 with the Minecraft Development plugin. This is not a strict requirement,
