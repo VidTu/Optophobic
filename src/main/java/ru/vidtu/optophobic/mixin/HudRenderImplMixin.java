@@ -45,7 +45,6 @@ import org.spongepowered.asm.mixin.injection.Redirect;
  * @apiNote Internal use only
  */
 // @ApiStatus.Internal // Can't annotate this without logging in the console.
-@Pseudo
 @Mixin(targets = "me.flashyreese.mods.sodiumextra.client.gui.HudRenderImpl", remap = false)
 @NullMarked
 public final class HudRenderImplMixin {
