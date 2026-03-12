@@ -128,25 +128,12 @@ tasks.withType<ProcessResources> {
     }
 }
 
-// Add LICENSE and manifest into the JAR file.
 tasks.withType<Jar> {
-    // Add LICENSE.
+    // Add LICENSE into the JAR file.
     from("LICENSE")
 
     // Remove package-info.class, unless package debug is on. (to save space)
     if (!"${findProperty("ru.vidtu.optophobic.debug.package")}".toBoolean()) {
         exclude("**/package-info.class")
-    }
-
-    // Add manifest.
-    manifest {
-        attributes(
-            "Specification-Title" to "Optophobic",
-            "Specification-Version" to version,
-            "Specification-Vendor" to "VidTu",
-            "Implementation-Title" to "Optophobic",
-            "Implementation-Version" to version,
-            "Implementation-Vendor" to "VidTu"
-        )
     }
 }
